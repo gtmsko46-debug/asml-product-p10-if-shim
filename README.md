@@ -1,16 +1,13 @@
 # asml-product-p10-if-shim
 
-**Own the intermediate-focus (IF) contract even without owning the linac — etendue, pupil fill, polarization, pulse envelope, pointing shim researchers can bind.**
+Own the IF even without the linac. Mandatory axes: pupil/etendue, power, pol, pulse, pointing.
 
-| | |
-|--|--|
-| Spec | [`SPEC.md`](SPEC.md) · asml-bench [#52](https://github.com/gtmsko46-debug/asml-bench/issues/52) |
-| Factory | [FACTORY.md](https://github.com/gtmsko46-debug/asml-bench/blob/main/products/FACTORY.md) |
-| Stage | **Spec (M0)** — package/build waits bay |
+KEEP AND (eval-owned): pupil_fill_error ≤ 0.10 AND photons_kept ≥ 0.55.
 
-```bash
-# after M1
-pip install -e '.[dev]'
+```python
+from asml_product_p10_if_shim import shim_if
+report = shim_if(source_state)
 ```
 
-Sandbox hill-climbs live on asml-bench (`labs/p10-if-shim/shim.py (scaffold → Foreman)`); set `ASML_BENCH_ROOT` to pick up live weights once the loader exists.
+M1 SEED — not product KEEP. Live: `ASML_BENCH_ROOT` / `ASML_P10_SHIM_PATH`.
+Parent: asml-bench #52.

@@ -1,7 +1,10 @@
-# asml-product-p10-if-shim
+# Lab bind — asml-product-p10-if-shim
 
-Owned by the ASML Grok Bot product/research track on **gtmsko46-debug**.
+See [`SPEC.md`](SPEC.md).
 
-- Shared bench + tickets: https://github.com/gtmsko46-debug/asml-bench
-- Harness: lasercode (Foreman-only until Grok API keys are wired)
-- Status: **setup only — do not hill-climb until go-live**
+- **Sandbox:** `labs/p10-if-shim/shim.py (scaffold → Foreman)`
+- **Eval:** product eval to bind IF Spec Owner floor + FEL-10 card when stamped
+- **Card:** `if-ownership-v1`
+- **Dual-gate:** dual-gate; LPP Reality Warden may challenge IF claims vs tin-LPP fixtures
+
+Live weights: `ASML_BENCH_ROOT` / product-specific override env (set at M1).

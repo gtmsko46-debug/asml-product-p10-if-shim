@@ -1,10 +1,4 @@
-# Lab bind — asml-product-p10-if-shim
-
-See [`SPEC.md`](SPEC.md).
-
-- **Sandbox:** `labs/p10-if-shim/shim.py (scaffold → Foreman)`
-- **Eval:** product eval to bind IF Spec Owner floor + FEL-10 card when stamped
-- **Card:** `if-ownership-v1`
-- **Dual-gate:** dual-gate; LPP Reality Warden may challenge IF claims vs tin-LPP fixtures
-
-Live weights: `ASML_BENCH_ROOT` / product-specific override env (set at M1).
+# Lab bind — P10 IF shim
+Sandbox: labs/p10-if-shim/shim.py (or solver.py).
+Cards: coherence-if-v1, fel-source-v1, imaging-optics-v1, fel-scanner-twin-v1.
+IF Spec: tickets/IF_SPEC_FEL10_CONTRACT.md. Etendue proxy = pupil_fill_error.

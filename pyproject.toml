@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "asml_product_p10_if_shim"
+version = "0.1.0"
+description = "IF ownership shim — etendue/pupil, power, pol, pulse, pointing (P10)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+dependencies = []
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+[tool.setuptools.packages.find]
+include = ["asml_product_p10_if_shim*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

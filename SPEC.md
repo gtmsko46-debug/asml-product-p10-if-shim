@@ -1,43 +1,49 @@
-# asml-product-p10-if-shim — Product Spec (M0)
+# asml-product-p10-if-shim — Product Spec
 
 **Parent:** asml-bench [#52](https://github.com/gtmsko46-debug/asml-bench/issues/52)  
-**Stage:** Spec → Build → Review → Ship  
-**Rule:** Bots orchestrate; all *solver/sandbox* code via lasercode (Foreman→Operator). Docs/spec PRs OK offline.
+**Showcase:** [asml-factory-showcase](https://github.com/gtmsko46-debug/asml-factory-showcase) (canonical decks / product pages — avoid docs sprawl)  
+**Stage:** M2 Dual-KEEP stamped → **M3 product sync (this PR, merge review)**  
+**Rule:** Bots orchestrate; solver/sandbox via lasercode (Foreman→Operator). Docs/product sync PRs OK offline. **No auto-promote.**
 
 ## Champion job
 Own the intermediate-focus (IF) contract even without owning the linac — etendue, pupil fill, polarization, pulse envelope, pointing shim researchers can bind.
 
-## Public API (target)
+## Public API
 ```python
 from asml_product_p10_if_shim import shim_if
-out = shim_if(source_state=..., if_targets=...)
+report = shim_if(source_state)
 ```
 
-## Lab bind
+## Product baseline (this sync)
 | Field | Value |
 |-------|-------|
-| Sandbox | `labs/p10-if-shim/shim.py (scaffold → Foreman)` |
-| Frozen eval | product eval to bind IF Spec Owner floor + FEL-10 card when stamped |
-| Assumption card | `if-ownership-v1` |
-| Dual-gate | dual-gate; LPP Reality Warden may challenge IF claims vs tin-LPP fixtures |
-| HOLDOUT | pin when EI freezes product holdout (no eval edits by solvers) |
+| `reference_shim` | **HT-1028** KEEP (Grok) |
+| Dual partner | **HT-1033** (mock-mistral) — DUAL-KEEP STAMPED |
+| Soft note | **HT-1033 soft no-gain travels** — must stay visible in SPEC/README; do not claim mock-lane improvement |
+| HOLDOUT | `d0dc1f8a7b8cc97ddd00122fb4156252c7642a09a7f0ae5102b939747c6cc5be` |
+| Metrics (1028) | pupil_err=0.0895; photons_kept=1.0000 |
+| Metrics (1033) | pupil_err=0.0950; photons_kept=1.0000 |
+| Critic / Repro / Diplomat | PASS / PASS / DUAL-KEEP STAMP |
+| VOID lesson | HT-1032 VOID (pupil_in−k / PUPIL_CORRECT write-down) — no dual claims |
+
+## IF Spec axes (mandatory)
+`pupil_fill_error`, `photons_kept`, `if_loss_db`, `pol_contrast_proxy`, `pulse_envelope_proxy`, `pointing_err_proxy`, `if_compat_score`
 
 ## KEEP / promote bar
 - Dual-provider KEEP on same frozen eval + digest
-- Critic clear (no oracle / metric reuse)
+- Critic clear (no oracle / residual write-down)
 - Repro Bot clean-tree PASS
 - Diplomat dual stamp before product `reference_*` sync
+- **Merge review required** — dual-KEEP ≠ auto-promote
 
 ## Must not
-- Edit `eval.py` / `fixture/*` from solver tickets
+- Edit `eval.py` / fixtures from solver tickets
 - Ship single-provider KEEP as product baseline
 - Claim fab-grounded numbers (synthetic cards only)
+- Drop soft no-gain on HT-1033 from ship docs
 
 ## Milestones
-1. **M0 Spec** — this document + README champion job (this PR)
-2. **M1 Package** — importable module + SEED `reference_*` + tests
-3. **M2 Dual-gate** — HT pair via Foreman; Critic+Repro+Diplomat
-4. **M3 Ship** — `reference_*` sync + ship-queue Issue close
-
-## Bay
-Queued behind P1 deepen / P2 HT-1023/1024 unless CoS assigns spare Operator. Spec/docs do not steal bay.
+1. M0 Spec — done
+2. M1 Package — done
+3. M2 Dual-gate HT-1028∧HT-1033 — stamped
+4. **M3 Ship** — this PR: `reference_shim` ← HT-1028 + soft notes (await merge review)

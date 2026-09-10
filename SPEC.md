@@ -24,7 +24,7 @@ report = shim_if(source_state)
 | Metrics (1028) | pupil_err=0.0895; photons_kept=1.0000 |
 | Metrics (1033) | pupil_err=0.0950; photons_kept=1.0000 |
 | Critic / Repro / Diplomat | PASS / PASS / DUAL-KEEP STAMP |
-| VOID lesson | HT-1032 VOID (pupil_in−k / PUPIL_CORRECT write-down) — no dual claims |
+| VOID lesson | HT-1029 hardcode VOID; HT-1032 VOID (pupil_in−k / PUPIL_CORRECT write-down) — no dual claims |
 
 ## IF Spec axes (mandatory)
 `pupil_fill_error`, `photons_kept`, `if_loss_db`, `pol_contrast_proxy`, `pulse_envelope_proxy`, `pointing_err_proxy`, `if_compat_score`

@@ -1,5 +1,7 @@
 # asml-product-p10-if-shim
 
+> **Champion FREEZE (2026-09-10):** no new hills / no new tickets. This README is the ship surface — polish docs only. See asml-bench `corpus/notes/champion-freeze-2026-09-10-product-ship.md`.
+
 Own the IF even without the linac. Mandatory axes: pupil/etendue, power, pol, pulse, pointing.
 
 KEEP AND (eval-owned): pupil_fill_error ≤ 0.10 AND photons_kept ≥ 0.55.
